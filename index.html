@@ -1796,10 +1796,9 @@ var Library = Backbone.Collection.extend({
 var Library = Backbone.Collection.extend({
   modelId: function(attrs) {
     if (attrs.type === 'dvd') {
-      return 'dvd' + attrs.dvd_id;
-    } else {
-      return 'vhs' + attrs.vhs_id;
+      return 'dvd' + attrs.id;
     }
+    return 'vhs' + attrs.id;
   }
 });
 
@@ -1808,9 +1807,9 @@ var library = new Library([
   {type: 'vhs', dvd_id: 1}
 ]);
 
-alert('dvd: ' + library.get('dvd1').cid);
-alert('vhs: ' + library.get('vhs1').cid);
-
+var dvdId = library.get('dvd1').id;
+var vhsId = library.get('vhs1').id;
+alert('dvd: ' + dvdId + ', vhs: ' + vhsId);
 </pre>
 
     <p id="Collection-constructor">
